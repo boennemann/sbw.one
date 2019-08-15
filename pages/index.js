@@ -3,8 +3,6 @@ import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 
-import Nav from '../components/nav'
-
 const Hero = styled.div`
   width: 100%;
   color: #333;
@@ -63,8 +61,6 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
-
-      <Nav />
 
       <Hero>
         <Title>Welcome to Next.js!</Title>

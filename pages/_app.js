@@ -1,6 +1,13 @@
 import App from 'next/app'
 import React from 'react'
-import {ThemeProvider} from 'styled-components'
+import {createGlobalStyle, ThemeProvider} from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+	body {
+		margin: 0;
+		font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
+	}
+`
 
 const theme = {
   colors: {
@@ -13,7 +20,10 @@ export default class MyApp extends App {
     const {Component, pageProps} = this.props
     return (
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <>
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </>
       </ThemeProvider>
     )
   }
