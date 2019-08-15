@@ -54,10 +54,6 @@ export default function Home() {
         <Head>
           <title>{NAME}</title>
           <meta name="description" content={NAME} />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Fira+Mono"
-          />
         </Head>
 
         <Photo />
@@ -76,7 +72,13 @@ export default function Home() {
               <span>former Founder</span>
               <br />
               <span>
-                and <a href="https://www.linkedin.com/in/boennemann/">more</a>.
+                and{' '}
+                <a
+                  href="https://www.linkedin.com/in/boennemann/"
+                  title="LinkedIn">
+                  more
+                </a>
+                .
               </span>
             </p>
           </section>
