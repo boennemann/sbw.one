@@ -1,0 +1,19 @@
+{
+  "plugins": ["react"],
+  "extends": [
+    "@boennemann",
+    "plugin:react/recommended",
+    "standard-react",
+    "prettier"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "rules": {
+    "react/prefer-stateless-function": "error",
+    "react/sort-comp": "error",
+    "react/sort-prop-types": "error"
+  },
+  "parser": "babel-eslint"
+}

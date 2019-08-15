@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "format": "eslint --ext=.json,.js --fix .",
+    "lint": "eslint --ext=.json,.js ."
   },
   "dependencies": {
     "next": "^9.0.3",
@@ -14,6 +13,11 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.6"
+    "babel-plugin-styled-components": "^1.10.6",
+    "@boennemann/eslint-config": "^4.1.1",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-standard-react": "^8.0.0",
+    "eslint-plugin-react": "^7.14.3"
   }
 }
