@@ -1,8 +1,9 @@
 import Head from 'next/head'
 // import Link from 'next/link'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled, {ThemeProvider} from 'styled-components'
 
+import FadeIn from '../components/FadeIn'
 import HomeGlobalStyle from '../components/HomeGlobalStyle'
 import Photo from '../components/Photo'
 
@@ -28,21 +29,24 @@ const Content = styled.div`
   }
 `
 
-Home.getInitialProps = function() {
-  const hue = Math.floor(Math.random() * 360)
-
+function getColors(hue) {
   return {
-    theme: {
-      primary: `hsl(${hue}, 55%, 70%)`,
-      primaryDark: `hsl(${hue}, 60%, 60%)`,
-    },
+    primary: `hsl(${hue}, 55%, 70%)`,
+    primaryDark: `hsl(${hue}, 60%, 60%)`,
   }
 }
 
-/* eslint-disable react/prop-types */
-export default function Home({theme}) {
+export default function Home() {
+  const [dynamicTheme, setTheme] = useState(getColors(0))
+
+  useEffect(() => {
+    const hue = Math.floor(Math.random() * 360)
+
+    setTheme(getColors(hue))
+  }, [])
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={dynamicTheme}>
       <>
         <HomeGlobalStyle />
 
@@ -56,8 +60,10 @@ export default function Home({theme}) {
 
         <Photo />
 
+        <FadeIn />
+
         <Content>
-          <div>
+          <section>
             <h1>Stephan Bönnemann</h1>
             <p>
               <br />
@@ -71,9 +77,9 @@ export default function Home({theme}) {
                 and <a href="https://www.linkedin.com/in/boennemann/">more</a>.
               </span>
             </p>
-          </div>
+          </section>
 
-          <div>
+          <section>
             <p>
               <span>I live in Berlin –</span>
               <br />
@@ -98,7 +104,7 @@ export default function Home({theme}) {
                 <a href="/legal/">Legal</a>.
               </span>
             </p>
-          </div>
+          </section>
         </Content>
       </>
     </ThemeProvider>
