@@ -4,10 +4,23 @@ import React from 'react'
 import {createGlobalStyle, ThemeProvider} from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+  html, body {
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
 	body {
 		margin: 0;
 		font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
 	}
+
+	#__next {
+    min-height: 100vh;
+		position: relative;
+  }
 `
 
 const theme = {

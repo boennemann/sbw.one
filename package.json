@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "format": "eslint --ext=.json,.js --fix .",
-		"lint": "eslint --ext=.json,.js .",
+    "lint": "eslint --ext=.json,.js .",
     "dev": "next",
     "build": "next build",
     "start": "next start"
@@ -16,11 +16,12 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.6",
     "@boennemann/eslint-config": "^4.1.1",
     "babel-eslint": "^10.0.2",
+    "babel-plugin-styled-components": "^1.10.6",
     "eslint": "^6.1.0",
     "eslint-config-standard-react": "^8.0.0",
-    "eslint-plugin-react": "^7.14.3"
+    "eslint-plugin-react": "^7.14.3",
+    "next-images": "^1.1.2"
   }
 }
