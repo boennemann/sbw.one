@@ -6,6 +6,7 @@ import styled, {ThemeProvider} from 'styled-components'
 import FadeIn from '../components/FadeIn'
 import HomeGlobalStyle from '../components/HomeGlobalStyle'
 import Photo from '../components/Photo'
+import NAME from '../lib/name'
 
 const Content = styled.div`
   position: absolute;
@@ -51,7 +52,8 @@ export default function Home() {
         <HomeGlobalStyle />
 
         <Head>
-          <title>Stephan Bönnemann</title>
+          <title>{NAME}</title>
+          <meta name="description" content={NAME} />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Fira+Mono"
@@ -64,7 +66,7 @@ export default function Home() {
 
         <Content>
           <section>
-            <h1>Stephan Bönnemann</h1>
+            <h1>{NAME}</h1>
             <p>
               <br />
               <span>I am a Freelance Software Engineer –</span>

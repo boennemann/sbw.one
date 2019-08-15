@@ -46,6 +46,12 @@ export default createGlobalStyle`
 		padding: 0 2px;
 	}
 
+	@media (max-width: 850px) {
+		h1 {
+			font-size: 2em;
+		}
+	}
+
 	@media (max-width: 480px) {
 		h1 {
 			font-size: 1.5em;

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import NAME from '../lib/name'
+
 const Picture = styled.picture`
   img {
     position: absolute;
@@ -69,7 +71,7 @@ export default function Photo() {
         srcSet={`${require('../assets/images/banner_768.jpg')} 768w,   ${require('../assets/images/banner_992.jpg')} 992w,   ${require('../assets/images/banner_1200.jpg')} 1200w`}
         src={`${require('../assets/images/banner_480.jpg')}`}
         type="image/jpeg"
-        alt="Portrait Stephan Bönnemann"
+        alt={`Portrait ${NAME}`}
       />
     </Picture>
   )
