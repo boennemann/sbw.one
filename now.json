@@ -9,5 +9,8 @@
     "headers": {
       "Location": "/$1"
     }
-  }]
+  }],
+  "alias": [
+    "sbw.one"
+  ]
 }
