@@ -59,9 +59,9 @@ Home.getInitialProps = async function({req}) {
   }
 
   const res = await global.fetch('/api/location')
-  const location = await res.json()
+  const {data} = await res.json()
 
-  return {location}
+  return {location: data}
 }
 
 export default function Home({location}) {

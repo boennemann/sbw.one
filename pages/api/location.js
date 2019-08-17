@@ -6,10 +6,10 @@ export default async function handle(req, res) {
   try {
     var location = await get4sqLocation()
   } catch {
-    res.json(null)
+    res.json({data: null})
     return
   }
 
   res.setHeader('Cache-Control', 'public, max-age=600')
-  res.json(location)
+  res.json({data: location})
 }
