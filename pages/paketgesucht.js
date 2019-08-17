@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
     margin: 0 auto;
     max-width: 480px;
+    padding: 0 20px;
   }
 `
 
