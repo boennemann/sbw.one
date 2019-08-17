@@ -38,7 +38,7 @@ export default class MyApp extends App {
     return (
       <>
         <Head>
-          <meta name="viewport" content="width=device-width, minimal-ui" />
+          <meta name="viewport" content="initial-scale=1" />
           <link
             rel="publisher"
             href="https://plus.google.com/+StephanBönnemann"

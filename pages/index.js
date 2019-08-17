@@ -15,9 +15,6 @@ const Content = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
 
   a {
     color: ${({theme}) => theme.primary};
@@ -28,6 +25,22 @@ const Content = styled.div`
   a:hover,
   a:focus {
     color: ${({theme}) => theme.primaryDark};
+  }
+`
+
+const Section = styled.section`
+  position: fixed;
+  ${({top}) => (top ? 'top: 0' : '')};
+  ${({bottom}) => (bottom ? 'bottom: 0' : '')};
+
+  h1,
+  span {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  span:last-of-type {
+    padding-bottom: ${({bottom}) =>
+      bottom ? 'env(safe-area-inset-bottom)' : ''};
   }
 `
 
@@ -81,14 +94,17 @@ export default function Home({location}) {
         <Head>
           <title>{NAME}</title>
           <meta name="description" content={NAME} />
+          <meta
+            id="viewport"
+            name="viewport"
+            content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
+          />
         </Head>
 
         <Photo />
 
-        {/* <FadeIn /> */}
-
         <Content>
-          <section>
+          <Section top>
             <h1>{NAME}</h1>
             <p>
               <br />
@@ -108,9 +124,9 @@ export default function Home({location}) {
                 .
               </span>
             </p>
-          </section>
+          </Section>
 
-          <section>
+          <Section bottom>
             <p>
               <span>I live in Berlin –</span>
               <br />
@@ -155,7 +171,7 @@ export default function Home({location}) {
                 .
               </span>
             </p>
-          </section>
+          </Section>
         </Content>
       </>
     </ThemeProvider>
