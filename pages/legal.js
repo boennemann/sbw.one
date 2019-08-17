@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
 export default function Legal() {
   return (
-    <div id="legal-wrapper">
+    <>
       <GlobalStyle />
       <h1>Legal</h1>
       <Link href="/" prefetch>
@@ -104,6 +104,6 @@ export default function Legal() {
       <p>
         Quelle: <a href="https://www.e-recht24.de">eRecht24</a>
       </p>
-    </div>
+    </>
   )
 }
