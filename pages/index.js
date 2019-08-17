@@ -1,9 +1,8 @@
 import Head from 'next/head'
-// import Link from 'next/link'
+import Link from 'next/link'
 import React, {useState, useEffect} from 'react'
 import styled, {ThemeProvider} from 'styled-components'
 
-import FadeIn from '../components/FadeIn'
 import HomeGlobalStyle from '../components/HomeGlobalStyle'
 import Photo from '../components/Photo'
 import NAME from '../lib/name'
@@ -30,8 +29,10 @@ const Content = styled.div`
   }
 `
 
-function getColors(hue) {
+function getColors(hue, darkMode) {
   return {
+    bg: '#020202',
+    color: 'white',
     primary: `hsl(${hue}, 55%, 70%)`,
     primaryDark: `hsl(${hue}, 60%, 60%)`,
   }
@@ -58,7 +59,7 @@ export default function Home() {
 
         <Photo />
 
-        <FadeIn />
+        {/* <FadeIn /> */}
 
         <Content>
           <section>
@@ -98,14 +99,30 @@ export default function Home() {
               </span>
               <br />
               <span>
-                Find my <a href="https://medium.com/@boennemann">blog</a>,{' '}
-                <a href="https://github.com/boennemann">code</a>,{' '}
+                Find my{' '}
+                <a href="https://medium.com/@boennemann" title="Medium Blog">
+                  blog
+                </a>
+                ,{' '}
+                <a href="https://github.com/boennemann" title="GitHub">
+                  code
+                </a>
+                ,{' '}
               </span>
               <br />
               <span>
-                <a href="https://twitter.com/boennemann">tweets</a> and{' '}
-                <a href="https://instagram.com/boennemann">photos</a> online.{' '}
-                <a href="/legal/">Legal</a>.
+                <a href="https://twitter.com/boennemann" title="Twitter">
+                  tweets
+                </a>{' '}
+                and{' '}
+                <a href="https://instagram.com/boennemann" title="Instagram">
+                  photos
+                </a>{' '}
+                online.{' '}
+                <Link prefetch href="/legal">
+                  <a>Legal</a>
+                </Link>
+                .
               </span>
             </p>
           </section>

@@ -3,19 +3,33 @@ import Head from 'next/head'
 import React from 'react'
 import {createGlobalStyle} from 'styled-components'
 
+const MIN_FONT_SIZE = 16
+const MAX_FONT_SIZE = 20
+const MIN_FONT_SIZE_SCREEN = 480
+const MAX_FONT_SIZE_SCREEN = 1200
+
 const GlobalStyle = createGlobalStyle`
   html, body {
     overflow-x: hidden;
   }
 
+  body {
+    font-size: calc(
+      ${MIN_FONT_SIZE}px +
+      (${MAX_FONT_SIZE} - ${MIN_FONT_SIZE}) *
+      (100vw - ${MIN_FONT_SIZE_SCREEN}px) /
+      (${MAX_FONT_SIZE_SCREEN} - ${MIN_FONT_SIZE_SCREEN})
+    );
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-last: always;
+    hyphenate-limit-zone: 8%;
+  }
+
   * {
     box-sizing: border-box;
   }
-
-	body {
-		margin: 0;
-		font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
-	}
 `
 
 export default class MyApp extends App {

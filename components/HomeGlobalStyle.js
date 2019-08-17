@@ -1,14 +1,9 @@
 import {createGlobalStyle} from 'styled-components'
 
-const MIN_FONT_SIZE = 16
-const MAX_FONT_SIZE = 20
-const MIN_FONT_SIZE_SCREEN = 480
-const MAX_FONT_SIZE_SCREEN = 1200
-
 export default createGlobalStyle`
   /* latin-ext */
   @font-face {
-    font-display: swap;
+    font-display: fallback;
     font-family: 'Fira Mono';
     font-style: normal;
     font-weight: 400;
@@ -17,7 +12,7 @@ export default createGlobalStyle`
   }
   /* latin */
   @font-face {
-    font-display: swap;
+    font-display: fallback;
     font-family: 'Fira Mono';
     font-style: normal;
     font-weight: 400;
@@ -25,58 +20,52 @@ export default createGlobalStyle`
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
 
-	html {
-		background-color: ${({theme}) => theme.primary};
+	html, body, #__next {
+		height: 100%;
+		width: 100%;
 	}
 
-	body {
-		color: white;
-		font-family: Fira Mono, monospace;
-		font-size: calc(
-      ${MIN_FONT_SIZE}px +
-      (${MAX_FONT_SIZE} - ${MIN_FONT_SIZE}) *
-      (100vw - ${MIN_FONT_SIZE_SCREEN}px) /
-      (${MAX_FONT_SIZE_SCREEN} - ${MIN_FONT_SIZE_SCREEN})
-    );
-		hyphens: auto;
-    hyphenate-limit-chars: 6 3 3;
-    hyphenate-limit-lines: 2;
-    hyphenate-limit-last: always;
-    hyphenate-limit-zone: 8%;
-	}
-
-	#__next {
-    min-height: 100vh;
-		position: relative;
+  html {
+    background-color: ${({theme}) => theme.bg};
   }
 
-	h1 {
-		margin: 0;
-		font-size: 3em;
-	}
+  body {
+    margin: 0;
+    color: ${({theme}) => theme.color};
+    font-family: Fira Mono, monospace;
+  }
 
-	p {
-		margin-bottom: 0;
-	}
+  #__next {
+    position: relative;
+  }
 
-	h1, span {
-		display: inline-block;
-		background-color: #020202;
-		padding: 0 2px;
-	}
+  h1 {
+    margin: 0;
+    font-size: 3em;
+  }
 
-	@media (max-width: 850px) {
-		h1 {
-			font-size: 2em;
-		}
-	}
+  p {
+    margin-bottom: 0;
+  }
 
-	@media (max-width: 480px) {
-		h1 {
-			font-size: 1.5em;
-		}
-		h1, span {
-			padding: 4px;
-		}
-	}
+  h1, span {
+    display: inline-block;
+		background-color: ${({theme}) => theme.bg};
+    padding: 0 2px;
+  }
+
+  @media (max-width: 850px) {
+    h1 {
+      font-size: 2em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.5em;
+    }
+    h1, span {
+      padding: 4px;
+    }
+  }
 `
