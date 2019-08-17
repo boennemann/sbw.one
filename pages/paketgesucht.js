@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 import {createGlobalStyle} from 'styled-components'
@@ -14,6 +15,9 @@ const GlobalStyle = createGlobalStyle`
 export default function Legal() {
   return (
     <>
+      <Head>
+        <title>PaketGesucht.de</title>
+      </Head>
       <GlobalStyle />
       <h1>PaketGesucht.de</h1>
       <h2>Thank you very much for your interest in PaketGesucht.de.</h2>

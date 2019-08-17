@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 import {createGlobalStyle} from 'styled-components'
@@ -13,6 +14,9 @@ const GlobalStyle = createGlobalStyle`
 export default function Legal() {
   return (
     <>
+      <Head>
+        <title>{NAME} – Legal</title>
+      </Head>
       <GlobalStyle />
       <h1>Legal</h1>
       <Link href="/" prefetch>
