@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^9.0.3",
     "next": "^9.0.3",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
