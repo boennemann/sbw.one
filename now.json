@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "env": {
+    "FOURSQUARE_OAUTH_TOKEN": "@foursquare-token"
+  }
+}

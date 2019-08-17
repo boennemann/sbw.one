@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 import React, {useState, useEffect} from 'react'
 import styled, {ThemeProvider} from 'styled-components'
 
 import HomeGlobalStyle from '../components/HomeGlobalStyle'
 import Photo from '../components/Photo'
+import get4sqLocation from '../lib/get-4sq-location.js'
 import NAME from '../lib/name'
 
 const Content = styled.div`
@@ -38,7 +40,31 @@ function getColors(hue, darkMode) {
   }
 }
 
-export default function Home() {
+Home.propTypes = {
+  location: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string.isRequired,
+    lat: PropTypes.number.isRequired,
+    lng: PropTypes.number.isRequired,
+  }),
+}
+
+Home.getInitialProps = async function({req}) {
+  if (req) {
+    let location
+    try {
+      location = await get4sqLocation()
+    } catch {}
+    return {location} || {location: null}
+  }
+
+  const res = await global.fetch('/api/location')
+  const location = await res.json()
+
+  return {location}
+}
+
+export default function Home({location}) {
   const [dynamicTheme, setTheme] = useState(getColors(0))
 
   useEffect(() => {
@@ -88,16 +114,20 @@ export default function Home() {
             <p>
               <span>I live in Berlin –</span>
               <br />
-              <span>
-                last seen in{' '}
-                <a
-                  id="location"
-                  href="https://maps.google.com/?q=52.48688055342877,13.318214828154577">
-                  Berlin, Germany
-                </a>
-                .
-              </span>
-              <br />
+              {!!location && (
+                <>
+                  <span>
+                    last seen in{' '}
+                    <a
+                      href={`https://maps.google.com/?q=${location.lat},${location.lng}`}>
+                      {(location.city ? location.city + ', ' : '') +
+                        location.country}
+                    </a>
+                    .
+                  </span>
+                  <br />
+                </>
+              )}
               <span>
                 Find my{' '}
                 <a href="https://medium.com/@boennemann" title="Medium Blog">
