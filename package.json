@@ -10,21 +10,21 @@
     "start": "next start"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^9.0.3",
-    "next": "^9.0.3",
+    "@next/bundle-analyzer": "^9.1.2",
+    "next": "^9.1.2",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "styled-components": "^4.3.2"
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {
-    "@boennemann/eslint-config": "^4.1.1",
-    "babel-eslint": "^10.0.2",
+    "@boennemann/eslint-config": "^6.2.0",
+    "babel-eslint": "^10.0.3",
     "babel-plugin-styled-components": "^1.10.6",
-    "eslint": "^6.1.0",
-    "eslint-config-standard-react": "^8.0.0",
-    "eslint-plugin-react": "^7.14.3",
-    "next-images": "^1.1.2"
+    "eslint": "^6.6.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-plugin-react": "^7.16.0",
+    "next-images": "^1.2.0"
   },
   "browser": {
     "https": false,

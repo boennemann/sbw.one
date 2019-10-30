@@ -7,5 +7,5 @@ module.exports = withBundleAnalyzer(
   withImages({
     target: 'serverless',
     experimental: {publicDirectory: true},
-  })
+  }),
 )

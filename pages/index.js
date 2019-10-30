@@ -118,7 +118,8 @@ export default function Home({location}) {
                 and{' '}
                 <a
                   href="https://www.linkedin.com/in/boennemann/"
-                  title="LinkedIn">
+                  title="LinkedIn"
+                >
                   more
                 </a>
                 .
@@ -135,7 +136,8 @@ export default function Home({location}) {
                   <span>
                     last seen in{' '}
                     <a
-                      href={`https://maps.google.com/?q=${location.lat},${location.lng}`}>
+                      href={`https://maps.google.com/?q=${location.lat},${location.lng}`}
+                    >
                       {(location.city ? location.city + ', ' : '') +
                         location.country}
                     </a>
