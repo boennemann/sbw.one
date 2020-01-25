@@ -108,11 +108,18 @@ export default function Home({location}) {
             <h1>{NAME}</h1>
             <p>
               <br />
-              <span>I am a Freelance Software Engineer –</span>
+              <span>
+                I the Engineering Manager for{' '}
+                <a
+                  title="Digital Bank"
+                  href="https://connect.finleap.com/digital-bank/"
+                >
+                  DigiBank
+                </a>
+                ,
+              </span>
               <br />
-              <span>former Engineering Manager,</span>
-              <br />
-              <span>former Founder</span>
+              <span>a former Freelancer, Speaker, Founder</span>
               <br />
               <span>
                 and{' '}
