@@ -167,7 +167,7 @@ export default function Home({location}) {
                   photos
                 </a>{' '}
                 online.{' '}
-                <Link prefetch href="/legal">
+                <Link href="/legal">
                   <a>Legal</a>
                 </Link>
                 .

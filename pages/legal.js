@@ -19,7 +19,7 @@ export default function Legal() {
       </Head>
       <GlobalStyle />
       <h1>Legal</h1>
-      <Link href="/" prefetch>
+      <Link href="/">
         <a>Home</a>
       </Link>
       <p>As required by german law.</p>

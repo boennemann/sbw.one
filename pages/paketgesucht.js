@@ -42,7 +42,7 @@ export default function Legal() {
       <p>
         Thank you,
         <br /> <a href="https://dtg.sexy">David</a> &amp;{' '}
-        <Link prefetch href="/">
+        <Link href="/">
           <a>Stephan</a>
         </Link>
       </p>

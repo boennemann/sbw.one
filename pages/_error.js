@@ -23,7 +23,7 @@ export default function Error({statusCode}) {
     <>
       <GlobalStyle />
       <h1>Error</h1>
-      <Link href="/" prefetch>
+      <Link href="/">
         <a>Home</a>
       </Link>
       <p>
