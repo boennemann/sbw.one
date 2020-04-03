@@ -109,7 +109,7 @@ export default function Home({location}) {
             <p>
               <br />
               <span>
-                I the Engineering Manager for{' '}
+                I am the Engineering Manager for{' '}
                 <a
                   title="Digital Bank"
                   href="https://connect.finleap.com/digital-bank/"
