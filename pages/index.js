@@ -109,12 +109,12 @@ export default function Home({location}) {
             <p>
               <br />
               <span>
-                I am the Engineering Manager for{' '}
+                I am Managing Director, Engineering for{' '}
                 <a
-                  title="Digital Bank"
-                  href="https://connect.finleap.com/digital-bank/"
+                  title="Prosperity"
+                  href="https://prosperity.app/"
                 >
-                  DigiBank
+                  Prosperity
                 </a>
                 ,
               </span>
