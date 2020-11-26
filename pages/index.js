@@ -44,7 +44,7 @@ const Section = styled.section`
   }
 `
 
-function getColors(hue, darkMode) {
+function getColors(hue) {
   return {
     bg: '#020202',
     color: 'white',
@@ -62,7 +62,7 @@ Home.propTypes = {
   }),
 }
 
-Home.getInitialProps = async function({req}) {
+Home.getInitialProps = async function ({req}) {
   if (req) {
     let location
     try {
@@ -110,10 +110,7 @@ export default function Home({location}) {
               <br />
               <span>
                 I am Managing Director, Engineering for{' '}
-                <a
-                  title="Prosperity"
-                  href="https://prosperity.app/"
-                >
+                <a title="Prosperity" href="https://prosperity.berlin/">
                   Prosperity
                 </a>
                 ,

@@ -13,7 +13,7 @@ Error.propTypes = {
   statusCode: PropTypes.number,
 }
 
-Error.getInitialProps = function({res, err}) {
+Error.getInitialProps = function ({res, err}) {
   const statusCode = res ? res.statusCode : err ? err.statusCode : null
   return {statusCode}
 }
