@@ -109,7 +109,7 @@ export default function Home({location}) {
             <p>
               <br />
               <span>
-                I am Managing Director, Engineering for{' '}
+                I am the Managing Director, Engineering for{' '}
                 <a title="Prosperity" href="https://prosperity.berlin/">
                   Prosperity
                 </a>

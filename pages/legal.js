@@ -37,12 +37,6 @@ export default function Legal() {
         <br />
         E-Mail: web@sbw.one
       </p>
-      <h2>Umsatzsteuer</h2>
-      <p>
-        Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:
-        <br />
-        DE306634373
-      </p>
       <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
       <p>
         {NAME}
