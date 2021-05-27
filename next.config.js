@@ -7,5 +7,8 @@ module.exports = withBundleAnalyzer(
   withImages({
     target: 'serverless',
     experimental: {publicDirectory: true},
+    future: {
+      webpack5: true,
+    },
   }),
 )
