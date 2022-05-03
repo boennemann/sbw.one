@@ -110,8 +110,11 @@ export default function Home({location}) {
               <br />
               <span>
                 I am the Managing Director, Product &amp; Engineering for{' '}
-                <a title="Prosperity" href="https://prosperity.berlin/">
-                  Prosperity
+                <a
+                  title="prosperity solutions"
+                  href="https://prosperitysolutions.li/"
+                >
+                  prosperity solutions
                 </a>
                 ,
               </span>
