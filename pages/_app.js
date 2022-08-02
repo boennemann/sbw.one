@@ -40,10 +40,6 @@ export default class MyApp extends App {
         <Head>
           <meta name="viewport" content="initial-scale=1" />
           <link
-            rel="publisher"
-            href="https://plus.google.com/+StephanBönnemann"
-          />
-          <link
             rel="apple-touch-icon"
             sizes="180x180"
             href="/favicons/apple-touch-icon.png"
