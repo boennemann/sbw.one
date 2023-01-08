@@ -6,6 +6,9 @@
     "https": false,
     "querystring": false
   },
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "build": "next build",
     "dev": "next",
@@ -19,7 +22,7 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@boennemann/eslint-config": "^12.1.1",
@@ -27,7 +30,7 @@
     "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^7.14.0",
     "eslint-config-standard-react": "^11.0.1",
-    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react": "^7.31.11",
     "next-images": "^1.8.4"
   }
 }
