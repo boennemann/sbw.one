@@ -109,7 +109,7 @@ export default function Home({location}) {
             <p>
               <br />
               <span>
-                I am the Managing Director, Product &amp; Engineering for{' '}
+                I am I am Co-CEO of{' '}
                 <a
                   title="prosperity solutions"
                   href="https://prosperitysolutions.li/"
@@ -136,7 +136,7 @@ export default function Home({location}) {
 
           <Section bottom>
             <p>
-              <span>I live in Berlin –</span>
+              <span>I live in Putzbrunn, Bavaria –</span>
               <br />
               {!!location && (
                 <>
