@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LastSeen from "./components/last-seen";
 import ColorShifter from "./components/color-shifter";
-import VoxelScene from "./components/voxel-scene";
+import VoxelScene from "./components/voxel-loader";
 import ScrollReveal from "./components/scroll-reveal";
 import MagneticLink from "./components/magnetic-link";
 import ScrollProgress from "./components/scroll-progress";
@@ -24,18 +24,15 @@ export default function Home() {
         Skip to content
       </a>
 
-      {/* Ambient glow */}
+      {/* Ambient glow — radial gradients instead of blur (blur kills mobile GPU) */}
       <div
-        className="pointer-events-none fixed inset-0 overflow-hidden"
+        className="ambient-glow pointer-events-none fixed inset-0"
         aria-hidden="true"
-      >
-        <div className="absolute -right-48 top-1/4 h-[700px] w-[700px] rounded-full bg-[hsl(var(--accent-hue)_70%_50%/0.05)] blur-[150px]" />
-        <div className="absolute -left-32 bottom-1/4 h-[400px] w-[400px] rounded-full bg-[hsl(var(--accent-hue)_70%_50%/0.03)] blur-[120px]" />
-      </div>
+      />
 
-      {/* Grid texture */}
+      {/* Grid texture — desktop only */}
       <div
-        className="grid-bg pointer-events-none fixed inset-0"
+        className="grid-bg pointer-events-none fixed inset-0 hidden sm:block"
         aria-hidden="true"
       />
 

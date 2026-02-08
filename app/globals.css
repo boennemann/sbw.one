@@ -111,19 +111,6 @@ body {
   animation: pulse-line 2s ease-in-out infinite;
 }
 
-/* Scroll-triggered reveal */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Page enter animation */
 @keyframes page-enter {
   from {
@@ -138,6 +125,21 @@ body {
 
 .animate-page-enter {
   animation: page-enter 0.5s ease-out both;
+}
+
+/* Ambient glow — radial gradients, no blur (blur destroys mobile perf) */
+.ambient-glow {
+  background:
+    radial-gradient(
+      600px 600px at 85% 25%,
+      hsl(var(--accent-hue) 70% 50% / 0.06),
+      transparent
+    ),
+    radial-gradient(
+      400px 400px at 15% 75%,
+      hsl(var(--accent-hue) 70% 50% / 0.04),
+      transparent
+    );
 }
 
 /* Voxel canvas — pixel-art upscale */
@@ -192,11 +194,5 @@ body {
 
   .animate-page-enter {
     animation: none;
-  }
-
-  .scroll-reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 }
