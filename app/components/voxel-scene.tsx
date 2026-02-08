@@ -418,10 +418,19 @@ export default function VoxelScene() {
         const nIdx = (curIdx + 1) % OBJECTS.length;
         tgtPos = OBJECTS[nIdx].map((p) => [...p] as [number, number, number]);
         const ml = Math.max(curPos.length, tgtPos.length);
-        while (curPos.length < ml)
-          curPos.push([(Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10]);
-        while (tgtPos.length < ml)
-          tgtPos.push([(Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10]);
+        // Surplus source voxels scatter outward; deficit spawn from center
+        while (curPos.length < ml) {
+          curPos.push([(Math.random() - 0.5) * 2, (Math.random() - 0.5) * 2, (Math.random() - 0.5) * 2]);
+        }
+        while (tgtPos.length < ml) {
+          const a = Math.random() * Math.PI * 2;
+          const r = 12 + Math.random() * 8;
+          tgtPos.push([Math.cos(a) * r, (Math.random() - 0.5) * 16, Math.sin(a) * r]);
+        }
+        // Sort both arrays by spatial key so nearby voxels pair together
+        const sk = (p: [number, number, number]) => p[1] * 10000 + p[0] * 100 + p[2];
+        curPos.sort((a, b) => sk(a) - sk(b));
+        tgtPos.sort((a, b) => sk(a) - sk(b));
         curIdx = nIdx;
       }
 
