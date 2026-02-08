@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Stephan Bönnemann-Walenta",
     description: "Builder of things — software products by trade, everything else by hand.",
   },

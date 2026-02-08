@@ -387,6 +387,19 @@ export default function VoxelScene() {
 
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    // Scroll reactivity — fade out and drift upward as user scrolls
+    let scrollFactor = 0;
+    function handleScroll() {
+      const vh = window.innerHeight;
+      scrollFactor = Math.min(window.scrollY / vh, 1);
+      el!.style.opacity = String(0.4 * (1 - scrollFactor * 0.85));
+      pivot.position.y = scrollFactor * 6;
+    }
+    if (!prefersReduced) {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      handleScroll();
+    }
+
     function animate() {
       if (dead) return;
       requestAnimationFrame(animate);
@@ -457,6 +470,7 @@ export default function VoxelScene() {
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerup", onUp);
       window.removeEventListener("pointercancel", onUp);
+      window.removeEventListener("scroll", handleScroll);
       renderer.dispose();
       geo.dispose();
       mat.dispose();

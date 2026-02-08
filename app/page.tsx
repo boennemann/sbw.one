@@ -2,6 +2,9 @@ import Link from "next/link";
 import LastSeen from "./components/last-seen";
 import ColorShifter from "./components/color-shifter";
 import VoxelScene from "./components/voxel-scene";
+import ScrollReveal from "./components/scroll-reveal";
+import MagneticLink from "./components/magnetic-link";
+import ScrollProgress from "./components/scroll-progress";
 
 const links = [
   { label: "GitHub", href: "https://github.com/boennemann" },
@@ -16,6 +19,7 @@ const companyHref =
 export default function Home() {
   return (
     <main className="relative min-h-screen selection:bg-[hsl(var(--accent-hue)_60%_65%/0.3)]">
+      <ScrollProgress />
       <a href="#about" className="skip-link">
         Skip to content
       </a>
@@ -72,7 +76,7 @@ export default function Home() {
 
       {/* About */}
       <section id="about" aria-label="About" className="pointer-events-none relative px-6 py-32 sm:px-12 md:px-20 lg:px-32">
-        <div className="pointer-events-auto max-w-xl">
+        <ScrollReveal className="pointer-events-auto max-w-xl">
           <p className="text-lg leading-relaxed text-neutral-400 sm:text-xl">
             CTO at{" "}
             <a
@@ -85,27 +89,27 @@ export default function Home() {
             </a>
             . I build things — software products by trade, everything else by hand.
           </p>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Links */}
       <section className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
-        <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
-          Elsewhere
-        </h2>
-        <nav aria-label="Social links" className="pointer-events-auto flex flex-wrap gap-x-10 gap-y-5">
-          {links.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="link font-mono text-sm sm:text-base"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
+        <ScrollReveal>
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+            Elsewhere
+          </h2>
+          <nav aria-label="Social links" className="pointer-events-auto flex flex-wrap gap-x-10 gap-y-5">
+            {links.map(({ label, href }) => (
+              <MagneticLink
+                key={label}
+                href={href}
+                className="link font-mono text-sm sm:text-base"
+              >
+                {label}
+              </MagneticLink>
+            ))}
+          </nav>
+        </ScrollReveal>
       </section>
 
       {/* Footer */}

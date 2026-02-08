@@ -111,6 +111,35 @@ body {
   animation: pulse-line 2s ease-in-out infinite;
 }
 
+/* Scroll-triggered reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Page enter animation */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: page-enter 0.5s ease-out both;
+}
+
 /* Voxel canvas — pixel-art upscale */
 .voxel-canvas {
   width: 100%;
@@ -159,5 +188,15 @@ body {
 
   .animate-pulse-line {
     animation: none;
+  }
+
+  .animate-page-enter {
+    animation: none;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
