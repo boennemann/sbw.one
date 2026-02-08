@@ -16,14 +16,15 @@ const links = [
 const companyHref =
   "https://liechtensteinlife.com/en-DE/markets/de/partner/technology";
 
-const PROSPERITY_START = 2020;
+const PROSPERITY_START = new Date("2020-11-01");
 const numberWords = [
   "zero", "one", "two", "three", "four", "five",
   "six", "seven", "eight", "nine", "ten",
 ];
-const prosperityYears =
-  numberWords[new Date().getFullYear() - PROSPERITY_START] ??
-  String(new Date().getFullYear() - PROSPERITY_START);
+const fullYears = Math.floor(
+  (Date.now() - PROSPERITY_START.getTime()) / (365.25 * 24 * 60 * 60 * 1000)
+);
+const prosperityYears = numberWords[fullYears] ?? String(fullYears);
 
 export default function Home() {
   return (
