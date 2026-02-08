@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LastSeen from "./components/last-seen";
 import ColorShifter from "./components/color-shifter";
-import VoxelScene from "./components/voxel-loader";
+import VoxelLoader from "./components/voxel-loader";
 import ScrollReveal from "./components/scroll-reveal";
 import MagneticLink from "./components/magnetic-link";
 import ScrollProgress from "./components/scroll-progress";
@@ -37,7 +37,7 @@ export default function Home() {
       />
 
       {/* Voxel background (fixed behind everything) */}
-      <VoxelScene />
+      <VoxelLoader />
 
       {/* Hero */}
       <section className="pointer-events-none relative flex min-h-screen flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-32">
@@ -66,7 +66,7 @@ export default function Home() {
         </div>
 
         {/* Scroll hint */}
-        <div className="animate-fade-up-d4 absolute bottom-10 left-1/2 -translate-x-1/2">
+        <div className="animate-fade-up-d4 absolute bottom-10 left-1/2 -translate-x-1/2" aria-hidden="true">
           <div className="animate-pulse-line h-10 w-px bg-neutral-600" />
         </div>
       </section>
@@ -114,13 +114,13 @@ export default function Home() {
         <div className="pointer-events-auto flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-neutral-800/60 pt-10">
           <a
             href="mailto:web@sbw.one"
-            className="link font-mono text-xs tracking-wide sm:text-sm"
+            className="link py-2 font-mono text-xs tracking-wide sm:text-sm"
           >
             web@sbw.one
           </a>
           <Link
             href="/legal"
-            className="link font-mono text-xs tracking-wide sm:text-sm"
+            className="link py-2 font-mono text-xs tracking-wide sm:text-sm"
           >
             Legal
           </Link>

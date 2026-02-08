@@ -19,9 +19,15 @@ export async function GET() {
 
   try {
     const res = await fetch(
-      `https://api.foursquare.com/v2/users/self/checkins?limit=1&oauth_token=${token}&v=20231001`,
-      { next: { revalidate: 604800 } },
+      "https://api.foursquare.com/v2/users/self/checkins?limit=1&v=20231001",
+      {
+        headers: { Authorization: `Bearer ${token}` },
+        next: { revalidate: 604800 },
+      },
     );
+    if (!res.ok) {
+      return NextResponse.json({ data: null }, { headers });
+    }
     const json = await res.json();
     const checkin = json?.response?.checkins?.items?.[0];
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function Legal() {
   return (
-    <main className="animate-page-enter relative mx-auto max-w-2xl px-6 py-16 sm:px-12 selection:bg-[hsl(var(--accent-hue)_60%_65%/0.3)]">
+    <main lang="de" className="animate-page-enter relative mx-auto max-w-2xl px-6 py-16 sm:px-12 selection:bg-[hsl(var(--accent-hue)_60%_65%/0.3)]">
       <Link href="/" className="link font-mono text-sm" aria-label="Back to home page">
         &larr; Back
       </Link>

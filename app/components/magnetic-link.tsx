@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 export default function MagneticLink({
   href,
@@ -12,11 +12,17 @@ export default function MagneticLink({
   className?: string;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
+  const reducedMotion = useRef(false);
+
+  useEffect(() => {
+    reducedMotion.current = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const el = ref.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!el || reducedMotion.current) return;
 
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -39,6 +45,8 @@ export default function MagneticLink({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
+        display: "inline-block",
+        padding: "0.5rem 0",
         transition:
           "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s ease",
       }}

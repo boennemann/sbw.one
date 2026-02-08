@@ -14,9 +14,12 @@ export default function LastSeen() {
 
   useEffect(() => {
     fetch("/api/location")
-      .then((res) => res.json())
-      .then(({ data }) => {
-        if (data) setLocation(data);
+      .then((res) => {
+        if (!res.ok) return null;
+        return res.json();
+      })
+      .then((json) => {
+        if (json?.data) setLocation(json.data);
       })
       .catch(() => {});
   }, []);
@@ -34,6 +37,7 @@ export default function LastSeen() {
         className="text-link"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label={`${place} on Google Maps`}
       >
         {place}
       </a>

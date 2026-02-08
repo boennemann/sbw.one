@@ -1,6 +1,8 @@
 {
     "name": "Stephan Bönnemann-Walenta",
     "short_name": "SBW",
+    "start_url": "/",
+    "display": "browser",
     "icons": [
         {
             "src": "/favicons/android-chrome-192x192.png",

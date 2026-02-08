@@ -471,9 +471,11 @@ export default function VoxelScene() {
       window.removeEventListener("pointerup", onUp);
       window.removeEventListener("pointercancel", onUp);
       window.removeEventListener("scroll", handleScroll);
+      mesh.dispose();
       renderer.dispose();
       geo.dispose();
       mat.dispose();
+      scene.clear();
       canvas.remove();
     };
   }, []);
