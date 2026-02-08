@@ -1,5 +1,7 @@
 import Link from "next/link";
 import LastSeen from "./components/last-seen";
+import ColorShifter from "./components/color-shifter";
+import VoxelScene from "./components/voxel-scene";
 
 const links = [
   { label: "GitHub", href: "https://github.com/boennemann" },
@@ -29,9 +31,12 @@ export default function Home() {
         aria-hidden="true"
       />
 
+      {/* Voxel background (fixed behind everything) */}
+      <VoxelScene />
+
       {/* Hero */}
-      <section className="relative flex min-h-screen flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-32">
-        <div>
+      <section className="pointer-events-none relative flex min-h-screen flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-32">
+        <div className="pointer-events-auto relative">
           <h1 className="animate-fade-up text-[clamp(2.8rem,8vw,7.5rem)] font-bold leading-[0.93] tracking-[-0.035em]">
             Stephan
             <br />
@@ -40,7 +45,7 @@ export default function Home() {
             Walenta
           </h1>
 
-          <div className="animate-fade-up-d1 mt-8 h-px w-16 bg-[var(--accent)]" />
+          <ColorShifter />
 
           <p className="animate-fade-up-d2 mt-6 font-mono text-sm uppercase tracking-widest text-[var(--accent)] sm:text-base">
             Builder of Things
@@ -62,8 +67,8 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section className="relative px-6 py-32 sm:px-12 md:px-20 lg:px-32">
-        <div className="max-w-xl">
+      <section className="pointer-events-none relative px-6 py-32 sm:px-12 md:px-20 lg:px-32">
+        <div className="pointer-events-auto max-w-xl">
           <p className="text-lg leading-relaxed text-neutral-400 sm:text-xl">
             CTO at{" "}
             <a
@@ -81,11 +86,11 @@ export default function Home() {
       </section>
 
       {/* Links */}
-      <section className="relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+      <section className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
         <p className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
           Elsewhere
         </p>
-        <nav className="flex flex-wrap gap-x-10 gap-y-5">
+        <nav className="pointer-events-auto flex flex-wrap gap-x-10 gap-y-5">
           {links.map(({ label, href }) => (
             <a
               key={label}
@@ -101,8 +106,8 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative px-6 py-12 sm:px-12 md:px-20 lg:px-32">
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-neutral-800/60 pt-10">
+      <footer className="pointer-events-none relative px-6 py-12 sm:px-12 md:px-20 lg:px-32">
+        <div className="pointer-events-auto flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-neutral-800/60 pt-10">
           <a
             href="mailto:web@sbw.one"
             className="link font-mono text-xs tracking-wide sm:text-sm"
