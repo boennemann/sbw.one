@@ -75,7 +75,160 @@ export default function Home() {
       <section id="about" aria-label="About" className="pointer-events-none relative px-6 py-32 sm:px-12 md:px-20 lg:px-32">
         <ScrollReveal className="pointer-events-auto max-w-xl">
           <p className="text-lg leading-relaxed text-neutral-400 sm:text-xl">
-            CTO at{" "}
+            I build things&thinsp;— software products by trade, everything else
+            by hand.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-neutral-400 sm:text-xl">
+            It started with building the school&rsquo;s website. By
+            2011 a friend and I were building a{" "}
+            <a
+              href="https://zenhabits.net/zen-to-done-ztd-the-ultimate-simple-productivity-system/"
+              className="text-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Zen To Done
+            </a>
+            {" "}iPhone app with web tech and PhoneGap&thinsp;— product,
+            design, marketing, code, everything. Being self-taught, we just
+            thought that&rsquo;s all what programmers do.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-neutral-400 sm:text-xl">
+            I got into open source early, contributing to{" "}
+            <a
+              href="https://github.com/hoodiehq/hoodie"
+              className="text-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hoodie
+            </a>
+            , then creating{" "}
+            <a
+              href="https://github.com/semantic-release/semantic-release"
+              className="text-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              semantic-release
+            </a>
+            {" "}and later{" "}
+            <a
+              href="https://github.com/greenkeeperio/greenkeeper"
+              className="text-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Greenkeeper
+            </a>
+            . That work took me around the world speaking at conferences and
+            led me to co-found{" "}
+            <a
+              href="https://2015.conc.at/"
+              className="text-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              .concat()
+            </a>
+            , a web development conference in Salzburg.
+          </p>
+        </ScrollReveal>
+      </section>
+
+      {/* Projects */}
+      <section aria-label="Projects" className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+        <ScrollReveal>
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+            Projects
+          </h2>
+          <ul className="pointer-events-auto max-w-xl space-y-6">
+            <li>
+              <div className="flex items-baseline justify-between gap-4">
+                <a
+                  href="https://github.com/semantic-release/semantic-release"
+                  className="text-link font-mono"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  semantic-release
+                </a>
+                <span className="font-mono text-xs text-neutral-600">23k+ ★</span>
+              </div>
+              <p className="mt-1 text-sm text-neutral-500">
+                Fully automated version management and package publishing.
+              </p>
+            </li>
+            <li>
+              <div className="flex items-baseline justify-between gap-4">
+                <a
+                  href="https://github.com/greenkeeperio/greenkeeper"
+                  className="text-link font-mono"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Greenkeeper
+                </a>
+                <span className="font-mono text-xs text-neutral-600">Acquired by Snyk</span>
+              </div>
+              <p className="mt-1 text-sm text-neutral-500">
+                Automated dependency updates for npm and GitHub.
+              </p>
+            </li>
+          </ul>
+        </ScrollReveal>
+      </section>
+
+      {/* Speaking */}
+      <section aria-label="Speaking" className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+        <ScrollReveal>
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+            Speaking
+          </h2>
+          <ul className="pointer-events-auto max-w-xl space-y-6">
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=tc2UgG5L7WM"
+                className="text-link text-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                We fail to follow SemVer — and why it needn&rsquo;t matter
+              </a>
+              <p className="mt-1 font-mono text-xs text-neutral-600">
+                JSConf Budapest · 2015
+              </p>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=DQVBSmIEH1g"
+                className="text-link text-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dependency Hell Just Froze Over
+              </a>
+              <p className="mt-1 font-mono text-xs text-neutral-600">
+                NodeConf EU · 2015
+              </p>
+            </li>
+          </ul>
+          <p className="mt-6 font-mono text-xs text-neutral-600">
+            21 conferences in 9 countries
+          </p>
+        </ScrollReveal>
+      </section>
+
+      {/* Career */}
+      <section aria-label="Career" className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+        <ScrollReveal>
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+            Career
+          </h2>
+          <p className="pointer-events-auto max-w-xl text-lg leading-relaxed text-neutral-400 sm:text-xl">
+            What followed were years of engagements across
+            industries&thinsp;— freelance and full-time. Happy to have
+            found{" "}
             <a
               href={companyHref}
               className="text-link"
@@ -84,13 +237,36 @@ export default function Home() {
             >
               Liechtenstein Life | Prosperity
             </a>
-            . I build things — software products by trade, everything else by hand.
+            {" "}more than five years ago, where I serve as CTO. We&rsquo;re
+            building the future of pensions across Europe.
           </p>
         </ScrollReveal>
       </section>
 
-      {/* Links */}
-      <section className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+      {/* Off Screen */}
+      <section aria-label="Off Screen" className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+        <ScrollReveal>
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+            Off Screen
+          </h2>
+          <p className="pointer-events-auto max-w-xl text-lg leading-relaxed text-neutral-400 sm:text-xl">
+            Restoring a house built in 1907, running a{" "}
+            <a
+              href="https://www.printables.com/@sbwww"
+              className="text-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              3D printer
+            </a>
+            , and spending time in the workshop. Greyhound on the sofa.
+            Twin dad. Cyborg.
+          </p>
+        </ScrollReveal>
+      </section>
+
+      {/* Elsewhere */}
+      <section aria-label="Elsewhere" className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
         <ScrollReveal>
           <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
             Elsewhere

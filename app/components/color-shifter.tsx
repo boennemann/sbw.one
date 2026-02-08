@@ -1,9 +1,26 @@
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
+
+function updateFavicon(hue: number) {
+  const link = document.querySelector<HTMLLinkElement>(
+    'link[rel="icon"][type="image/svg+xml"]'
+  );
+  if (link) link.href = `/api/icon?hue=${Math.round(hue)}`;
+}
 
 export default function ColorShifter() {
   const animRef = useRef<number | null>(null);
+
+  // Sync favicon with the random hue set by the inline script on mount
+  useEffect(() => {
+    const hue = parseFloat(
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--accent-hue")
+        .trim()
+    );
+    if (!isNaN(hue)) updateFavicon(hue);
+  }, []);
 
   const shiftColor = useCallback(() => {
     const root = document.documentElement;
@@ -40,6 +57,7 @@ export default function ColorShifter() {
         animRef.current = requestAnimationFrame(step);
       } else {
         animRef.current = null;
+        updateFavicon(next);
       }
     }
 

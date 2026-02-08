@@ -31,7 +31,7 @@ export default async function Image() {
             height: "500px",
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, hsla(200, 70%, 50%, 0.12) 0%, transparent 70%)",
+              "radial-gradient(circle, hsla(330, 70%, 50%, 0.12) 0%, transparent 70%)",
           }}
         />
 
@@ -45,7 +45,7 @@ export default async function Image() {
             height: "350px",
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, hsla(200, 70%, 50%, 0.06) 0%, transparent 70%)",
+              "radial-gradient(circle, hsla(330, 70%, 50%, 0.06) 0%, transparent 70%)",
           }}
         />
 
@@ -96,7 +96,7 @@ export default async function Image() {
           style={{
             width: 80,
             height: 3,
-            background: "hsl(200, 55%, 65%)",
+            background: "hsl(330, 55%, 65%)",
             marginTop: 44,
             borderRadius: 2,
           }}
@@ -106,7 +106,7 @@ export default async function Image() {
         <div
           style={{
             fontSize: 21,
-            color: "hsl(200, 55%, 65%)",
+            color: "hsl(330, 55%, 65%)",
             marginTop: 28,
             letterSpacing: 6,
             textTransform: "uppercase" as const,
