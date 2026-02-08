@@ -10,11 +10,20 @@ const links = [
   { label: "GitHub", href: "https://github.com/boennemann" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/boennemann/" },
   { label: "X", href: "https://x.com/boennemann" },
-  { label: "Instagram", href: "https://instagram.com/boennemann" },
+  { label: "Instagram", href: "https://www.instagram.com/boennemann" },
 ];
 
 const companyHref =
   "https://liechtensteinlife.com/en-DE/markets/de/partner/technology";
+
+const PROSPERITY_START = 2020;
+const numberWords = [
+  "zero", "one", "two", "three", "four", "five",
+  "six", "seven", "eight", "nine", "ten",
+];
+const prosperityYears =
+  numberWords[new Date().getFullYear() - PROSPERITY_START] ??
+  String(new Date().getFullYear() - PROSPERITY_START);
 
 export default function Home() {
   return (
@@ -40,8 +49,8 @@ export default function Home() {
       <VoxelLoader />
 
       {/* Hero */}
-      <section className="pointer-events-none relative flex min-h-screen flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-32">
-        <div className="pointer-events-auto relative">
+      <section className="relative flex min-h-screen flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-32">
+        <div className="relative">
           <h1 className="animate-fade-up text-[clamp(2.8rem,8vw,7.5rem)] font-bold leading-[0.93] tracking-[-0.035em]">
             Stephan
             <br />
@@ -72,8 +81,8 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section id="about" aria-label="About" className="pointer-events-none relative px-6 py-32 sm:px-12 md:px-20 lg:px-32">
-        <ScrollReveal className="pointer-events-auto max-w-xl">
+      <section id="about" aria-label="About" className="relative px-6 py-32 sm:px-12 md:px-20 lg:px-32">
+        <ScrollReveal className="max-w-xl">
           <p className="text-lg leading-relaxed text-neutral-400 sm:text-xl">
             I build things&thinsp;— software products by trade, everything else
             by hand.
@@ -137,12 +146,12 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section aria-label="Projects" className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+      <section aria-label="Projects" className="relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
         <ScrollReveal>
-          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-500">
             Projects
           </h2>
-          <ul className="pointer-events-auto max-w-xl space-y-6">
+          <ul className="max-w-xl space-y-6">
             <li>
               <div className="flex items-baseline justify-between gap-4">
                 <a
@@ -153,7 +162,7 @@ export default function Home() {
                 >
                   semantic-release
                 </a>
-                <span className="font-mono text-xs text-neutral-600">23k+ ★</span>
+                <span className="font-mono text-xs text-neutral-500">23k+ ★</span>
               </div>
               <p className="mt-1 text-sm text-neutral-500">
                 Fully automated version management and package publishing.
@@ -169,7 +178,7 @@ export default function Home() {
                 >
                   Greenkeeper
                 </a>
-                <span className="font-mono text-xs text-neutral-600">Acquired by Snyk</span>
+                <span className="font-mono text-xs text-neutral-500">Acquired by Snyk</span>
               </div>
               <p className="mt-1 text-sm text-neutral-500">
                 Automated dependency updates for npm and GitHub.
@@ -180,52 +189,52 @@ export default function Home() {
       </section>
 
       {/* Speaking */}
-      <section aria-label="Speaking" className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+      <section aria-label="Speaking" className="relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
         <ScrollReveal>
-          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-500">
             Speaking
           </h2>
-          <ul className="pointer-events-auto max-w-xl space-y-6">
+          <ul className="max-w-xl space-y-6">
             <li>
               <a
                 href="https://www.youtube.com/watch?v=tc2UgG5L7WM"
-                className="text-link text-sm"
+                className="text-link font-mono text-sm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 We fail to follow SemVer — and why it needn&rsquo;t matter
               </a>
-              <p className="mt-1 font-mono text-xs text-neutral-600">
+              <p className="mt-1 font-mono text-xs text-neutral-500">
                 JSConf Budapest · 2015
               </p>
             </li>
             <li>
               <a
                 href="https://www.youtube.com/watch?v=DQVBSmIEH1g"
-                className="text-link text-sm"
+                className="text-link font-mono text-sm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Dependency Hell Just Froze Over
               </a>
-              <p className="mt-1 font-mono text-xs text-neutral-600">
+              <p className="mt-1 font-mono text-xs text-neutral-500">
                 NodeConf EU · 2015
               </p>
             </li>
           </ul>
-          <p className="mt-6 font-mono text-xs text-neutral-600">
+          <p className="mt-6 font-mono text-xs text-neutral-500">
             21 conferences in 9 countries
           </p>
         </ScrollReveal>
       </section>
 
       {/* Career */}
-      <section aria-label="Career" className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+      <section aria-label="Career" className="relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
         <ScrollReveal>
-          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-500">
             Career
           </h2>
-          <p className="pointer-events-auto max-w-xl text-lg leading-relaxed text-neutral-400 sm:text-xl">
+          <p className="max-w-xl text-lg leading-relaxed text-neutral-400 sm:text-xl">
             What followed were years of engagements across
             industries&thinsp;— freelance and full-time. Happy to have
             found{" "}
@@ -237,19 +246,19 @@ export default function Home() {
             >
               Liechtenstein Life | Prosperity
             </a>
-            {" "}more than five years ago, where I serve as CTO. We&rsquo;re
+            {" "}more than {prosperityYears} years ago, where I serve as CTO. We&rsquo;re
             building the future of pensions across Europe.
           </p>
         </ScrollReveal>
       </section>
 
       {/* Off Screen */}
-      <section aria-label="Off Screen" className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+      <section aria-label="Off Screen" className="relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
         <ScrollReveal>
-          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-500">
             Off Screen
           </h2>
-          <p className="pointer-events-auto max-w-xl text-lg leading-relaxed text-neutral-400 sm:text-xl">
+          <p className="max-w-xl text-lg leading-relaxed text-neutral-400 sm:text-xl">
             Restoring a house built in 1907, running a{" "}
             <a
               href="https://www.printables.com/@sbwww"
@@ -266,12 +275,12 @@ export default function Home() {
       </section>
 
       {/* Elsewhere */}
-      <section aria-label="Elsewhere" className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
+      <section aria-label="Elsewhere" className="relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
         <ScrollReveal>
-          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-500">
             Elsewhere
           </h2>
-          <nav aria-label="Social links" className="pointer-events-auto flex flex-wrap gap-x-10 gap-y-5">
+          <nav aria-label="Social links" className="flex flex-wrap gap-x-10 gap-y-5">
             {links.map(({ label, href }) => (
               <MagneticLink
                 key={label}
@@ -286,8 +295,8 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="pointer-events-none relative px-6 py-12 sm:px-12 md:px-20 lg:px-32">
-        <div className="pointer-events-auto flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-neutral-800/60 pt-10">
+      <footer className="relative px-6 py-12 sm:px-12 md:px-20 lg:px-32">
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-neutral-800/60 pt-10">
           <a
             href="mailto:web@sbw.one"
             className="link py-2 font-mono text-xs tracking-wide sm:text-sm"

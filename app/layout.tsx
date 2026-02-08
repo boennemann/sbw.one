@@ -16,11 +16,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Stephan Bönnemann-Walenta",
-  description: "Builder of things — software products by trade, everything else by hand.",
+  description: "Builder of Things — software products by trade, everything else by hand.",
   metadataBase: new URL("https://sbw.one"),
   openGraph: {
     title: "Stephan Bönnemann-Walenta",
-    description: "Builder of things — software products by trade, everything else by hand.",
+    description: "Builder of Things — software products by trade, everything else by hand.",
     url: "https://sbw.one",
     siteName: "sbw.one",
     locale: "en_US",
@@ -29,7 +29,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Stephan Bönnemann-Walenta",
-    description: "Builder of things — software products by trade, everything else by hand.",
+    description: "Builder of Things — software products by trade, everything else by hand.",
+  },
+  other: {
+    "theme-color": "#050505",
   },
   icons: {
     icon: [
@@ -65,6 +68,29 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `document.documentElement.style.setProperty('--accent-hue',Math.floor(Math.random()*360))`,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Stephan Bönnemann-Walenta",
+              url: "https://sbw.one",
+              jobTitle: "CTO",
+              worksFor: {
+                "@type": "Organization",
+                name: "Liechtenstein Life | Prosperity",
+                url: "https://liechtensteinlife.com",
+              },
+              sameAs: [
+                "https://github.com/boennemann",
+                "https://www.linkedin.com/in/boennemann/",
+                "https://x.com/boennemann",
+                "https://www.instagram.com/boennemann",
+              ],
+            }),
           }}
         />
         {children}

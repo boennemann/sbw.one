@@ -1,7 +1,19 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import * as THREE from "three";
+import {
+  WebGLRenderer,
+  PerspectiveCamera,
+  Scene,
+  AmbientLight,
+  DirectionalLight,
+  BoxGeometry,
+  MeshLambertMaterial,
+  InstancedMesh,
+  Object3D,
+  Color,
+  Group,
+} from "three";
 
 function box(
   x0: number, y0: number, z0: number,
@@ -260,7 +272,7 @@ export default function VoxelScene() {
     const el = ref.current;
     if (!el) return;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+    const renderer = new WebGLRenderer({ antialias: false, alpha: true });
     renderer.setPixelRatio(1);
     renderer.setClearColor(0x000000, 0);
 
@@ -269,7 +281,7 @@ export default function VoxelScene() {
     el.appendChild(canvas);
 
     // Resize handler — keeps pixel-art chunky but matches viewport aspect ratio
-    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 200);
+    const camera = new PerspectiveCamera(50, 1, 0.1, 200);
     function handleResize() {
       const w = el!.clientWidth || 1;
       const h = el!.clientHeight || 1;
@@ -286,28 +298,28 @@ export default function VoxelScene() {
     resizeObs.observe(el);
     handleResize();
 
-    const scene = new THREE.Scene();
+    const scene = new Scene();
     // Camera offset left so the object renders right-of-center
     camera.position.set(-18, 2, 26);
     camera.lookAt(0, 0, 0);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
-    const d1 = new THREE.DirectionalLight(0xffffff, 1.0);
+    scene.add(new AmbientLight(0xffffff, 0.5));
+    const d1 = new DirectionalLight(0xffffff, 1.0);
     d1.position.set(8, 15, 10);
     scene.add(d1);
-    const d2 = new THREE.DirectionalLight(0xffffff, 0.3);
+    const d2 = new DirectionalLight(0xffffff, 0.3);
     d2.position.set(-8, -3, -8);
     scene.add(d2);
 
     const maxV = 1600;
-    const geo = new THREE.BoxGeometry(0.88, 0.88, 0.88);
-    const mat = new THREE.MeshLambertMaterial({ color: 0xffffff });
-    const mesh = new THREE.InstancedMesh(geo, mat, maxV);
+    const geo = new BoxGeometry(0.88, 0.88, 0.88);
+    const mat = new MeshLambertMaterial({ color: 0xffffff });
+    const mesh = new InstancedMesh(geo, mat, maxV);
     mesh.count = 0;
 
-    const dummy = new THREE.Object3D();
-    const col = new THREE.Color();
-    const pivot = new THREE.Group();
+    const dummy = new Object3D();
+    const col = new Color();
+    const pivot = new Group();
     scene.add(pivot);
     pivot.add(mesh);
 
@@ -320,6 +332,7 @@ export default function VoxelScene() {
     let hue = 200;
     let meshDirty = true;
     let dead = false;
+    let hidden = false;
 
     // Rotation
     let rotY = 0, rotX = 0.3;
@@ -400,8 +413,14 @@ export default function VoxelScene() {
       handleScroll();
     }
 
+    function handleVisibility() {
+      hidden = document.hidden;
+      if (!hidden && !dead) requestAnimationFrame(animate);
+    }
+    document.addEventListener("visibilitychange", handleVisibility);
+
     function animate() {
-      if (dead) return;
+      if (dead || hidden) return;
       requestAnimationFrame(animate);
       const now = performance.now();
 
@@ -464,6 +483,7 @@ export default function VoxelScene() {
 
     return () => {
       dead = true;
+      document.removeEventListener("visibilitychange", handleVisibility);
       obs.disconnect();
       resizeObs.disconnect();
       window.removeEventListener("pointerdown", onDown);

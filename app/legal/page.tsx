@@ -35,7 +35,7 @@ export default function Legal() {
       </p>
 
       <h2 className="mt-10 text-lg font-semibold">
-        Verantwortlich f&uuml;r den Inhalt nach &sect; 55 Abs. 2 RStV
+        Verantwortlich f&uuml;r den Inhalt nach &sect; 18 Abs. 2 MStV
       </h2>
       <p className="mt-4 leading-relaxed text-neutral-400">
         Stephan B&ouml;nnemann-Walenta

@@ -9,6 +9,7 @@ interface LocationData {
 
 const headers = {
   "Cache-Control": "public, s-maxage=604800, stale-while-revalidate=2592000",
+  "Access-Control-Allow-Origin": "https://sbw.one",
 };
 
 export async function GET() {
