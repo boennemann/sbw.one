@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular",
+    monospace;
+}
+
+:root {
+  --accent-hue: 200;
+  --accent: hsl(var(--accent-hue) 55% 65%);
+  --accent-hover: hsl(var(--accent-hue) 60% 55%);
+}
+
+body {
+  background: #050505;
+  color: #ededed;
+}
+
+::selection {
+  background: hsl(var(--accent-hue) 60% 65% / 0.3);
+}
+
+/* Link with animated underline */
+.link {
+  position: relative;
+  color: #a3a3a3;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--accent);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  width: 100%;
+}
+
+/* Inline text link for paragraphs */
+.text-link {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  text-underline-offset: 3px;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Entrance animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-up-d1 {
+  animation: fade-up 0.7s ease-out 0.1s both;
+}
+
+.animate-fade-up-d2 {
+  animation: fade-up 0.7s ease-out 0.2s both;
+}
+
+.animate-fade-up-d3 {
+  animation: fade-up 0.7s ease-out 0.35s both;
+}
+
+.animate-fade-up-d4 {
+  animation: fade-up 0.7s ease-out 0.5s both;
+}
+
+@keyframes pulse-line {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-line {
+  animation: pulse-line 2s ease-in-out infinite;
+}
+
+/* Subtle grid background */
+.grid-bg {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
