@@ -29,22 +29,6 @@ function cyl(
   return result;
 }
 
-// Hollow cylinder shell (ring) along Y axis
-function ring(
-  cx: number, cz: number, rOuter: number, rInner: number, y0: number, y1: number,
-): number[][] {
-  const result: number[][] = [];
-  const ro2 = (rOuter + 0.3) * (rOuter + 0.3);
-  const ri2 = (rInner - 0.3) * (rInner - 0.3);
-  for (let y = y0; y <= y1; y++)
-    for (let x = Math.ceil(cx - rOuter); x <= Math.floor(cx + rOuter); x++)
-      for (let z = Math.ceil(cz - rOuter); z <= Math.floor(cz + rOuter); z++) {
-        const d2 = (x - cx) * (x - cx) + (z - cz) * (z - cz);
-        if (d2 <= ro2 && d2 >= ri2) result.push([x, y, z]);
-      }
-  return result;
-}
-
 function dedup(v: number[][]): number[][] {
   const s = new Set<string>();
   return v.filter(([x, y, z]) => {
@@ -334,6 +318,7 @@ export default function VoxelScene() {
     let morphStart = 0;
     let lastSwitch = performance.now();
     let hue = 200;
+    let meshDirty = true;
     let dead = false;
 
     // Rotation
@@ -347,7 +332,10 @@ export default function VoxelScene() {
       const v = getComputedStyle(document.documentElement)
         .getPropertyValue("--accent-hue").trim();
       const n = parseFloat(v);
-      if (!isNaN(n)) hue = n;
+      if (!isNaN(n) && n !== hue) {
+        hue = n;
+        meshDirty = true;
+      }
     }
     readHue();
 
@@ -449,11 +437,11 @@ export default function VoxelScene() {
           morphing = false;
           lastSwitch = now;
           curPos = OBJECTS[curIdx].map((p) => [...p] as [number, number, number]);
-          updateMesh(curPos);
+          meshDirty = true;
         }
-      } else {
-        readHue();
+      } else if (meshDirty) {
         updateMesh(curPos);
+        meshDirty = false;
       }
 
       renderer.render(scene, camera);

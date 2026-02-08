@@ -120,13 +120,6 @@ body {
   display: block;
 }
 
-/* Color shifter glow */
-.color-shifter {
-  display: block;
-  appearance: none;
-  background: var(--accent);
-}
-
 /* Subtle grid background */
 .grid-bg {
   background-image: linear-gradient(
