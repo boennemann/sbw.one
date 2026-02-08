@@ -10,6 +10,7 @@
   --accent-hue: 200;
   --accent: hsl(var(--accent-hue) 55% 65%);
   --accent-hover: hsl(var(--accent-hue) 60% 55%);
+  color-scheme: dark;
 }
 
 body {
@@ -134,4 +135,36 @@ body {
     ),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 64px 64px;
+}
+
+/* Skip navigation link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #050505;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-up-d1,
+  .animate-fade-up-d2,
+  .animate-fade-up-d3,
+  .animate-fade-up-d4 {
+    animation: none;
+  }
+
+  .animate-pulse-line {
+    animation: none;
+  }
 }

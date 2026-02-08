@@ -50,7 +50,7 @@ export default function ColorShifter() {
       onClick={shiftColor}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      className="animate-fade-up-d1 group relative mt-8 flex cursor-pointer items-center gap-3 border-none bg-transparent p-0"
+      className="animate-fade-up-d1 group relative mt-8 flex cursor-pointer items-center gap-3 border-none bg-transparent p-0 outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4 focus-visible:ring-offset-[#050505] rounded"
       aria-label="Change accent color"
       type="button"
     >

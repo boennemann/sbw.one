@@ -397,13 +397,15 @@ export default function VoxelScene() {
     window.addEventListener("pointerup", onUp);
     window.addEventListener("pointercancel", onUp);
 
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     function animate() {
       if (dead) return;
       requestAnimationFrame(animate);
       const now = performance.now();
 
-      // Auto-rotate when idle
-      if (!dragging && now - lastInput > IDLE_MS) {
+      // Auto-rotate when idle (skip if user prefers reduced motion)
+      if (!prefersReduced && !dragging && now - lastInput > IDLE_MS) {
         tRotY += AUTO_SPEED;
       }
       rotY += (tRotY - rotY) * 0.08;

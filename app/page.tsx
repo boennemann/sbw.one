@@ -16,6 +16,10 @@ const companyHref =
 export default function Home() {
   return (
     <main className="relative min-h-screen selection:bg-[hsl(var(--accent-hue)_60%_65%/0.3)]">
+      <a href="#about" className="skip-link">
+        Skip to content
+      </a>
+
       {/* Ambient glow */}
       <div
         className="pointer-events-none fixed inset-0 overflow-hidden"
@@ -55,9 +59,9 @@ export default function Home() {
             Putzbrunn, Germany, Europe
           </p>
 
-          <div className="animate-fade-up-d4 mt-1.5 font-mono text-xs tracking-wider text-neutral-500 sm:text-sm">
+          <p className="animate-fade-up-d4 mt-1.5 font-mono text-xs tracking-wider text-neutral-500 sm:text-sm">
             <LastSeen />
-          </div>
+          </p>
         </div>
 
         {/* Scroll hint */}
@@ -67,7 +71,7 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section className="pointer-events-none relative px-6 py-32 sm:px-12 md:px-20 lg:px-32">
+      <section id="about" aria-label="About" className="pointer-events-none relative px-6 py-32 sm:px-12 md:px-20 lg:px-32">
         <div className="pointer-events-auto max-w-xl">
           <p className="text-lg leading-relaxed text-neutral-400 sm:text-xl">
             CTO at{" "}
@@ -79,17 +83,17 @@ export default function Home() {
             >
               Liechtenstein Life | Prosperity
             </a>
-            . I build things — software by trade, everything else by hand.
+            . I build things — software products by trade, everything else by hand.
           </p>
         </div>
       </section>
 
       {/* Links */}
       <section className="pointer-events-none relative px-6 py-24 sm:px-12 md:px-20 lg:px-32">
-        <p className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
+        <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-neutral-600">
           Elsewhere
-        </p>
-        <nav className="pointer-events-auto flex flex-wrap gap-x-10 gap-y-5">
+        </h2>
+        <nav aria-label="Social links" className="pointer-events-auto flex flex-wrap gap-x-10 gap-y-5">
           {links.map(({ label, href }) => (
             <a
               key={label}

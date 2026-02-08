@@ -16,11 +16,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Stephan Bönnemann-Walenta",
-  description: "CTO. Munich, Germany.",
+  description: "Builder of things — software products by trade, everything else by hand.",
   metadataBase: new URL("https://sbw.one"),
   openGraph: {
     title: "Stephan Bönnemann-Walenta",
-    description: "CTO. Munich, Germany.",
+    description: "Builder of things — software products by trade, everything else by hand.",
     url: "https://sbw.one",
     siteName: "sbw.one",
     locale: "en_US",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Stephan Bönnemann-Walenta",
-    description: "CTO. Munich, Germany.",
+    description: "Builder of things — software products by trade, everything else by hand.",
   },
   icons: {
     icon: [

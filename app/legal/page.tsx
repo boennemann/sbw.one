@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function Legal() {
   return (
     <main className="relative mx-auto max-w-2xl px-6 py-16 sm:px-12 selection:bg-[hsl(var(--accent-hue)_60%_65%/0.3)]">
-      <Link href="/" className="link font-mono text-sm">
+      <Link href="/" className="link font-mono text-sm" aria-label="Back to home page">
         &larr; Back
       </Link>
 
@@ -121,11 +121,11 @@ export default function Legal() {
         </a>
       </p>
 
-      <div className="mt-16 border-t border-neutral-800/60 pt-8">
-        <Link href="/" className="link font-mono text-sm">
+      <nav className="mt-16 border-t border-neutral-800/60 pt-8" aria-label="Back navigation">
+        <Link href="/" className="link font-mono text-sm" aria-label="Back to home page">
           &larr; Back
         </Link>
-      </div>
+      </nav>
     </main>
   );
 }
