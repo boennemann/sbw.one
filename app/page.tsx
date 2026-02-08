@@ -79,8 +79,7 @@ export default function Home() {
             >
               Liechtenstein Life | Prosperity
             </a>
-            . Building Prosperity by day, building things with my hands on the
-            side. Vibe coding after dark.
+            . I build things — software by trade, everything else by hand.
           </p>
         </div>
       </section>
