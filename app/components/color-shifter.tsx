@@ -2,7 +2,17 @@
 
 import { useCallback, useEffect, useRef } from "react";
 
-function updateFavicon(hue: number) {
+// Module-level hue tracker — avoids reading back from DOM
+let hue = 0;
+
+function syncToDOM() {
+  document.documentElement.style.setProperty(
+    "--accent-hue",
+    String(Math.round(hue))
+  );
+}
+
+function updateFavicon() {
   const link = document.querySelector<HTMLLinkElement>(
     'link[rel="icon"][type="image/svg+xml"]'
   );
@@ -10,58 +20,40 @@ function updateFavicon(hue: number) {
 }
 
 export default function ColorShifter() {
-  const animRef = useRef<number | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Sync favicon with the random hue set by the inline script on mount
   useEffect(() => {
-    const hue = parseFloat(
+    // Read initial hue set by inline script
+    const initial = parseInt(
       getComputedStyle(document.documentElement)
         .getPropertyValue("--accent-hue")
-        .trim()
     );
-    if (!isNaN(hue)) updateFavicon(hue);
-  }, []);
+    hue = isNaN(initial) ? 200 : initial;
 
-  const shiftColor = useCallback(() => {
-    const root = document.documentElement;
-    const current = parseFloat(
-      getComputedStyle(root).getPropertyValue("--accent-hue").trim()
-    );
-
-    // Guard against NaN (broken CSS variable)
-    const from = isNaN(current) ? 200 : current;
-
-    // Pick a new hue at least 30° away
-    let next: number;
-    do {
-      next = Math.floor(Math.random() * 360);
-    } while (Math.abs(next - from) < 30 || Math.abs(next - from) > 330);
-
-    if (animRef.current) cancelAnimationFrame(animRef.current);
-
-    const start = performance.now();
-    const duration = 600;
-
-    let diff = next - from;
-    if (diff > 180) diff -= 360;
-    if (diff < -180) diff += 360;
-
-    function step(now: number) {
-      const elapsed = now - start;
-      const t = Math.min(elapsed / duration, 1);
-      const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-      const value = ((from + diff * eased) % 360 + 360) % 360;
-      root.style.setProperty("--accent-hue", String(Math.round(value)));
-
-      if (t < 1) {
-        animRef.current = requestAnimationFrame(step);
-      } else {
-        animRef.current = null;
-        updateFavicon(next);
-      }
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Rotate 1° every 100ms — full cycle in 36s
+      intervalRef.current = setInterval(() => {
+        hue = (hue + 1) % 360;
+        syncToDOM();
+      }, 100);
     }
 
-    animRef.current = requestAnimationFrame(step);
+    // Sync favicon on mount + every 30s
+    updateFavicon();
+    const faviconId = setInterval(updateFavicon, 30_000);
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      clearInterval(faviconId);
+    };
+  }, []);
+
+  // Jump ahead 60–120° in the spectrum; rotation continues from there
+  const shiftColor = useCallback(() => {
+    const offset = 60 + Math.floor(Math.random() * 60);
+    hue = (hue + offset) % 360;
+    syncToDOM();
+    updateFavicon();
   }, []);
 
   return (
